@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikoloz Kokilashvili (Kokela) - Interactive CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Fredoka (Retro Display) & Plus Jakarta Sans (Readable body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBrown: '#543c35',
+                        deepBrown: '#3d2a24',
+                        cardGreen: '#25e27a',
+                        neonMint: '#00ff88',
+                        creamAccent: '#fef08a',
+                        retroRed: '#ff4d4d'
+                    },
+                    fontFamily: {
+                        pop: ['"Fredoka"', 'cursive', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f4f1ea;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-pop {
+            font-family: 'Fredoka', cursive;
+        }
+
+        /* Floating starburst background shapes */
+        .retro-star {
+            position: absolute;
+            background: #ff4d4d;
+            clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+            animation: floatSlow 7s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(4deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        @keyframes heartUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-70px) scale(1.4); opacity: 0; }
+        }
+
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        /* Retro Grid Pattern overlay */
+        .retro-grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #3d2a24;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #25e27a;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-green-400 selection:text-black py-8">
+
+    <!-- Decorative Y2K Background Starburst Shapes -->
+    <div class="retro-star top-8 left-6 w-16 h-16 rotate-12 opacity-80 z-0 pointer-events-none"></div>
+    <div class="retro-star bottom-36 left-10 w-20 h-20 -rotate-45 opacity-80 z-0 pointer-events-none" style="background:#ff9f1c;"></div>
+    <div class="retro-star top-1/3 right-8 w-14 h-14 rotate-45 opacity-75 z-0 pointer-events-none" style="background:#25e27a;"></div>
+    <div class="retro-star bottom-12 right-12 w-16 h-16 rotate-12 opacity-85 z-0 pointer-events-none"></div>
+
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Top Right Subtle Football Pill -->
+        <div class="flex justify-end mb-4">
+            <div onclick="kickSubtleBall(this)" title="Football Fan ⚽" class="cursor-pointer group flex items-center gap-2 bg-black/40 hover:bg-black/60 border border-white/20 backdrop-blur-md px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:scale-105 active:scale-95">
+                <span id="subtleBallIcon" class="text-xl transition-transform duration-500 inline-block">⚽</span>
+                <span class="text-xs font-bold text-gray-200 tracking-wide uppercase font-pop">Football Fan</span>
+            </div>
+        </div>
+
+        <header class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12 relative">
+            
+            <!-- Left Intro Block -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- Title Header -->
+                <div class="space-y-1">
+                    <p class="font-pop text-2xl sm:text-3xl text-green-400 tracking-wide">gamarjoba! I'm</p>
+                    <h1 class="font-pop text-4xl sm:text-6xl font-black text-white tracking-tight leading-none drop-shadow-md">
+                        nikoloz kokilashvili
+                    </h1>
+                </div>
+
+                <!-- Nickname Tag & Extra Badges -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="inline-flex items-center gap-2 bg-cardGreen text-black font-black px-5 py-2.5 rounded-2xl shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-300 border-2 border-black">
+                        <i class="fas fa-bolt text-lg"></i>
+                        <span class="font-pop text-lg sm:text-xl uppercase tracking-wider">nickname kokela</span>
+                    </div>
+
+                    <div class="inline-flex items-center gap-1.5 bg-creamAccent text-black font-extrabold text-xs px-3.5 py-2 rounded-xl border border-black/40 shadow-sm">
+                        <span>💡 Creative Developer</span>
+                    </div>
+                </div>
+
+                <!-- Main Bio Text -->
+                <p class="text-sm sm:text-base text-gray-100 leading-relaxed bg-black/40 p-6 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-sm">
+                    I have Experience in MS Office (Excell, Powerpoint, Word.. can easily adapt to other programs). I can also make simple designs, and edit videos that look proffesional and eye catching. I have experience with programming languages like html, css, javascript, c++, c# and now im learning java. Even though im into everything, i master whatever im learning at the moment and i need a little time for adjustment. I'm a team player and i can say that im a team player, but i can also work individually. Im confident in my abilities and can say that always had leading abilities since i was a kid. If you don't believe me you can try me out :-) my info is down below!
+                </p>
+
+                <!-- Contact Pills -->
+                <div class="flex flex-wrap gap-3 pt-1">
+                    <a href="tel:595018800" class="flex items-center gap-2.5 bg-cardGreen text-black font-bold px-4 py-2.5 rounded-full hover:bg-neonMint transition-all shadow-md hover:scale-105 active:scale-95 border-2 border-black text-sm">
+                        <i class="fas fa-phone text-xs"></i>
+                        <span>595 01 88 00</span>
+                    </a>
+
+                    <a href="mailto:n_kokilashvili@ibsu.edu.ge" class="flex items-center gap-2.5 bg-cardGreen text-black font-bold px-4 py-2.5 rounded-full hover:bg-neonMint transition-all shadow-md hover:scale-105 active:scale-95 border-2 border-black text-sm">
+                        <i class="fas fa-envelope text-xs"></i>
+                        <span class="truncate max-w-[210px]">n_kokilashvili@ibsu.edu.ge</span>
+                    </a>
+
+              
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 flex justify-center mt-4 lg:mt-0">
+                <div class="relative w-full max-w-sm bg-cardGreen p-4 rounded-[2.5rem] shadow-2xl border-4 border-black animate-float hover:shadow-[0_20px_50px_rgba(37,226,122,0.3)] transition-shadow duration-500">
+                    
+                    <!-- Insta Header Bar -->
+                    <div class="bg-black/10 rounded-2xl p-3 mb-3 border border-black/10 flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-green-400 border border-green-400 font-bold text-xs">
+                                NK
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-black text-xs leading-tight font-pop">kokilashvili.nikolozi</h4>
+                                <p class="text-[10px] text-black/70 font-semibold">Tbilisi, Georgia</p>
+                            </div>
+                        </div>
+                        <div class="text-black font-black tracking-widest text-sm cursor-pointer hover:opacity-75">•••</div>
+                    </div>
+
+                    <!-- Photo Display Container -->
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-black bg-gradient-to-b from-emerald-100 to-emerald-300 retro-grid-bg group flex items-center justify-center h-80">
+                        
+                        <!-- Cutout Photo with Fallback -->
+                        <img src="me.jpg" 
+                             onerror="this.onerror=null; this.src='watermarked_img_10106466374833959808.jpg';"
+                             alt="Nikoloz Kokilashvili (Kokela)" 
+                             class="relative z-10 max-h-full object-contain filter drop-shadow-[0_12px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-500">
+                        
+                        <!-- Floating Heart Button -->
+                        <button id="likeBtn" onclick="toggleInstaHeart()" class="absolute bottom-3 right-3 z-20 bg-white text-red-500 w-10 h-10 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform border-2 border-black">
+                            <i id="likeHeartIcon" class="far fa-heart text-lg"></i>
+                        </button>
+                        <div id="heartBurstContainer" class="absolute bottom-12 right-6 pointer-events-none z-20"></div>
+                    </div>
+
+                    <!-- Interactive Bar -->
+                    <div class="mt-3 px-2 flex items-center justify-between text-black">
+                        <div class="flex items-center gap-3.5 text-xl">
+                            <i class="far fa-heart cursor-pointer hover:text-white transition-colors" onclick="toggleInstaHeart()"></i>
+                            <i class="far fa-comment cursor-pointer hover:text-white transition-colors"></i>
+                            <i class="far fa-paper-plane cursor-pointer hover:text-white transition-colors"></i>
+                        </div>
+                        <i class="far fa-bookmark text-xl cursor-pointer hover:text-white transition-colors"></i>
+                    </div>
+
+                    <div class="mt-2.5 px-2 text-black text-xs font-black">
+                        <span id="likeCountDisplay">1,890</span> likes
+                    </div>
+                    <div class="mt-1 px-2 text-black text-xs font-semibold leading-snug">
+                        <span class="font-bold">kokilashvili.nikolozi</span> i can make simple designs 🎨
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+
+            <!-- Left Column: Education & Skills -->
+            <div class="space-y-8">
+                
+                <!-- Education Box -->
+                <section class="bg-cardGreen rounded-[2.2rem] p-7 border-4 border-black text-black shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-creamAccent border-2 border-black px-8 py-2 rounded-full shadow-md font-pop font-black text-lg uppercase tracking-wider transform -rotate-1">
+                            Education
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white/60 p-5 rounded-2xl border-2 border-black/20 backdrop-blur-sm shadow-sm hover:bg-white/80 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="text-2xl">🏫</span>
+                                <div>
+                                    <h3 class="font-pop text-lg font-bold text-black">51th Public school</h3>
+                                    <p class="text-xs text-gray-800 font-semibold">Primary & Secondary Education</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border-2 border-black/20 backdrop-blur-sm shadow-sm hover:bg-white/80 transition-colors">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl">🎓</span>
+                                <div>
+                                    <h3 class="font-pop text-lg font-bold text-black">International Black Sea University</h3>
+                                    <span class="inline-block bg-black text-white text-xs font-bold px-3 py-1 rounded-full mt-1">2025 – till now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Box -->
+                <section class="bg-cardGreen rounded-[2.2rem] p-7 border-4 border-black text-black shadow-xl hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-creamAccent border-2 border-black px-8 py-2 rounded-full shadow-md font-pop font-black text-lg uppercase tracking-wider transform rotate-1">
+                            Skills
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 bg-white/60 p-5 rounded-2xl border-2 border-black/20">
+                        
+                        <!-- Skill 1 -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between items-center font-bold text-xs">
+                                <span class="font-pop text-sm font-black">communication</span>
+                                <span class="font-black text-xs bg-black text-white px-2 py-0.5 rounded-md">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-900 h-5 rounded-full overflow-hidden p-0.5 border-2 border-black">
+                                <div class="skill-bar bg-green-400 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between items-center font-bold text-xs">
+                                <span class="font-pop text-sm font-black">creativity</span>
+                                <span class="font-black text-xs bg-black text-white px-2 py-0.5 rounded-md">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-900 h-5 rounded-full overflow-hidden p-0.5 border-2 border-black">
+                                <div class="skill-bar bg-green-400 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between items-center font-bold text-xs">
+                                <span class="font-pop text-sm font-black">Hand drawing,</span>
+                                <span class="font-black text-xs bg-black text-white px-2 py-0.5 rounded-md">15%</span>
+                            </div>
+                            <div class="w-full bg-gray-900 h-5 rounded-full overflow-hidden p-0.5 border-2 border-black">
+                                <div class="skill-bar bg-green-400 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-width="15%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between items-center font-bold text-xs">
+                                <span class="font-pop text-sm font-black">Digital drawing,</span>
+                                <span class="font-black text-xs bg-black text-white px-2 py-0.5 rounded-md">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-900 h-5 rounded-full overflow-hidden p-0.5 border-2 border-black">
+                                <div class="skill-bar bg-green-400 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-width="70%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Experience (ex Jobs and me) -->
+            <section class="bg-cardGreen rounded-[2.2rem] p-7 border-4 border-black text-black shadow-xl hover:-translate-y-1 transition-transform duration-300 h-full flex flex-col">
+                <div class="text-center mb-6">
+                    <div class="inline-block bg-creamAccent border-2 border-black px-8 py-2 rounded-full shadow-md font-pop font-black text-lg uppercase tracking-wider transform -rotate-1">
+                        ex Jobs and me
+                    </div>
+                </div>
+
+                <div class="space-y-5 flex-1 flex flex-col justify-center">
+                    
+                    <!-- Job 1: McDonalds -->
+                    <div class="bg-white/60 p-6 rounded-2xl border-2 border-black/20 backdrop-blur-sm shadow-sm hover:bg-white/80 transition-colors">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-pop font-extrabold text-lg text-black flex items-center gap-2">
+                                <span>🍔</span> McDonalds
+                            </h3>
+                            <span class="text-xs font-black bg-black text-white px-3 py-1 rounded-full">2021</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-900 leading-relaxed font-semibold">
+                            It was a summer job and i was 14, used to have 9 hour shifts and did everything i had to do nothing special
+                        </p>
+                    </div>
+
+                    <!-- Job 2: CoffeeShop Company Georgia -->
+                    <div class="bg-white/60 p-6 rounded-2xl border-2 border-black/20 backdrop-blur-sm shadow-sm hover:bg-white/80 transition-colors">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-pop font-extrabold text-lg text-black flex items-center gap-2">
+                                <span>☕</span> CoffeeShop Company Georgia
+                            </h3>
+                            <span class="text-xs font-black bg-black text-white px-3 py-1 rounded-full">2023</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-gray-900 space-y-2 list-disc list-inside font-semibold leading-relaxed">
+                            <li>I was 16 at the time and i was gaining more and more experience as the time passed, had to serve regocnized people most of the times</li>
+                            <li>I was working in a fast-paced envoirement, all while learning about the job itself.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="text-center py-6 text-gray-300 text-xs border-t border-white/10">
+            <p class="font-pop text-sm font-semibold text-gray-300">© 2026 Nikoloz Kokilashvili (nickname kokela) • Creative Animated CV</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Ball Kick Animation
+        function kickSubtleBall(container) {
+            const ball = document.getElementById('subtleBallIcon');
+            ball.style.transform = 'rotate(360deg) scale(1.3)';
+            setTimeout(() => {
+                ball.style.transform = 'rotate(0deg) scale(1)';
+            }, 500);
+        }
+
+        // Instagram Heart Toggle
+        let isLiked = false;
+        let likesCount = 1890;
+
+        function toggleInstaHeart() {
+            const icon = document.getElementById('likeHeartIcon');
+            const display = document.getElementById('likeCountDisplay');
+            const burst = document.getElementById('heartBurstContainer');
+
+            isLiked = !isLiked;
+            if (isLiked) {
+                likesCount++;
+                icon.className = 'fas fa-heart text-lg text-red-500';
+                
+                // Spawn animated floating heart
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'absolute';
+                heart.style.fontSize = '18px';
+                heart.style.animation = 'heartUp 0.8s ease-out forwards';
+                burst.appendChild(heart);
+                setTimeout(() => heart.remove(), 800);
+            } else {
+                likesCount--;
+                icon.className = 'far fa-heart text-lg';
+            }
+            display.textContent = likesCount.toLocaleString();
+        }
+
+        // Skill Bar Intersection Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const targetWidth = target.getAttribute('data-width');
+                        target.style.width = targetWidth;
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            skillBars.forEach(bar => observer.observe(bar));
+        });
+    </script>
+</body>
+</html>
